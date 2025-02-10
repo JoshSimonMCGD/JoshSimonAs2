@@ -3,13 +3,12 @@ using System;
 using System.Numerics;
 
 // The namespace your code is in.
-namespace MohawkGame2D
-{
+namespace MohawkGame2D;
     /// <summary>
     ///     Your game code goes inside this class!
     /// </summary>
     public class Game
-    {
+    { 
         float starspeed = 25;
 
         float shootingstarx = 400;
@@ -29,15 +28,18 @@ namespace MohawkGame2D
             // Declare Random Placement Variables.
             int starplacement1 = Random.Integer(400);
             int starplacement2 = Random.Integer(200);
+            
             // Declare Mouse Position Variables.
             float mouseX = Input.GetMouseX();
             float mouseY = Input.GetMouseY();
             
+            //Prevent Values above 400
             if (mouseX > 400)
             {
                 mouseX = 400;
             }
-
+            
+            //Prevent Values bellow 0
             if (mouseX < 0)
             {
                 mouseX = 0;
@@ -105,6 +107,32 @@ namespace MohawkGame2D
             Draw.Circle(150, 315, 44);
             
             //Stars
+            Draw.LineSize = 0;
+            Draw.FillColor = new ColorF(r3, g3, b3);
+            for (int i = 0; i < 5; i++)
+            {
+                int x = 60 + (i * 78) + (i * 5);
+                int y = 20 + (i * 35) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int x = 300 - (i * 100) + (i * 10);
+                int y = 50 + (i * 25) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int x = 160 - (i * 65) + (i * 10);
+                int y = 10 + (i * 75) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                int x = 35 + (i * 125) + (i * 5);
+                int y = 220 - (i * 25) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
             
             //Shooting Stars
             int[] Shootingstar = new int[400];
@@ -125,5 +153,3 @@ namespace MohawkGame2D
             
         }
     }
-
-}

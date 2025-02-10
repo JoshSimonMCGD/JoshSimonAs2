@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RenameMe")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd4358ee433f8f1f83f0fa029ac8698016bef3cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("RenameMe")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RenameMe")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
