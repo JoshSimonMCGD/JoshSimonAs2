@@ -61,6 +61,11 @@ namespace MohawkGame2D;
             float g3 = 0.8f - ((0.144444444444444444444444444444444444444f / 400) * mouseX);
             float b3 = mouseX / 400;
             
+            // Yellow to light blue color gradient. Moon Color.
+            float r5 = 1.0f - ((1.0f / 400) * mouseX);
+            float g5 = 0.7f - ((0.044444444444444444444444444444444444444f / 400) * mouseX);
+            float b5 = mouseX / 400;
+            
             //Cloud Color 1.
             float r4 = mouseX / 90;
             float g4 = mouseX / 300;
@@ -108,7 +113,7 @@ namespace MohawkGame2D;
             
             //Stars
             Draw.LineSize = 0;
-            Draw.FillColor = new ColorF(r3, g3, b3);
+            Draw.FillColor = new ColorF(r5, g5, b5);
             for (int i = 0; i < 5; i++)
             {
                 int x = 60 + (i * 78) + (i * 5);

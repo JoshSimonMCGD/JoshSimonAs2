@@ -64,3 +64,4 @@
 /Users/owner/Desktop/Mohawk/Game Programming Fundamentals/Night Day Cycle/obj/Debug/net9.0/RenameMe.pdb
 /Users/owner/Desktop/Mohawk/Game Programming Fundamentals/Night Day Cycle/obj/Debug/net9.0/RenameMe.genruntimeconfig.cache
 /Users/owner/Desktop/Mohawk/Game Programming Fundamentals/Night Day Cycle/obj/Debug/net9.0/ref/RenameMe.dll
+/Users/owner/Desktop/Mohawk/Game Programming Fundamentals/Night Day Cycle/obj/Debug/net9.0/RenameMe.sourcelink.json
