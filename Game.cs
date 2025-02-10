@@ -13,16 +13,19 @@ namespace MohawkGame2D;
 
         float shootingstarx = 400;
         
+        // Framecount Variable
+        int frameCount = 0;
+        
+        float cloudpositionX = 0;
+        
         public void Setup()
         {
             Window.SetTitle("Night / Day");
             Window.SetSize(400, 400);
-            
         }
         
         public void Update()
         {
-            
             // Declare Random Placement Variables.
             int starplacement1 = Random.Integer(400);
             int starplacement2 = Random.Integer(200);
@@ -101,41 +104,39 @@ namespace MohawkGame2D;
                 int y = 220 - (i * 25) + (i * 5);
                 Draw.Circle(x, y, 2);
             }
+
+            void DrawMoon(float sunX, float sunY)
+            {
+                Draw.LineColor= new ColorF(r3, g3, b3);
+                Draw.FillColor = new ColorF(r3, g3, b3);;
+                Draw.Circle(sunX + mouseX / 2, sunY + mouseX / 2, 40);
             
-            // Moon Body
-            Draw.LineColor= new ColorF(r3, g3, b3);
-            Draw.FillColor = new ColorF(r3, g3, b3);;
-            Draw.Circle(220 + mouseX / 2, 195 + mouseX / 2, 40);
+                // Moon Hole
+                Draw.LineColor = new ColorF(r, g, b);
+                Draw.FillColor = new ColorF(r, g, b);;
+                Draw.Circle(sunX - 25 + mouseX / 2, sunY + mouseX / 2, 24);
+            }
             
-            // Moon Hole
-            Draw.LineColor = new ColorF(r, g, b);
-            Draw.FillColor = new ColorF(r, g, b);;
-            Draw.Circle(195 + mouseX / 2, 195 + mouseX / 2, 24);
+            DrawMoon(220, 195);
             
             // Sun
             Draw.LineColor = new ColorF(r, g, b);
             Draw.FillColor = new ColorF(r2, g2, b2);
             Draw.Circle(mouseX / 2, 400 - mouseX / 2, 60);
+
+            cloudpositionX += Time.DeltaTime * 70;
             
-            //Cloud 1
+            //Clouds
             Draw.LineColor = new ColorF(r4, g4, b4);
             Draw.FillColor = new ColorF(r4, g4, b4);
-            Draw.Circle(100, 300, 40);
-            
-            //Cloud 2
-            Draw.LineColor = new ColorF(r4, g4, b4);
-            Draw.FillColor = new ColorF(r4, g4, b4);
-            Draw.Circle(150, 270, 52);
-            
-            //Cloud 3
-            Draw.LineColor = new ColorF(r4, g4, b4);
-            Draw.FillColor = new ColorF(r4, g4, b4);
-            Draw.Circle(205, 290, 49);
-            
-            //Cloud 4
-            Draw.LineColor = new ColorF(r4, g4, b4);
-            Draw.FillColor = new ColorF(r4, g4, b4);
-            Draw.Circle(150, 315, 44);
+            Draw.Circle(cloudpositionX - 150, 300, 40);
+            Draw.Circle(cloudpositionX - 100, 270, 52);
+            Draw.Circle(cloudpositionX - 50, 290, 49);
+            Draw.Circle(cloudpositionX - 95, 315, 44);
+            if (cloudpositionX > Window.Width + 200)
+            {
+                cloudpositionX = 0;
+            }
             
             //Shooting Stars
             int[] Shootingstar = new int[400];
