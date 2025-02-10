@@ -50,7 +50,6 @@ namespace MohawkGame2D;
             float r = 0.0f;
             float g = mouseX / 600;
             float b = mouseX / 400;
-            float c = mouseX / 400;
             
             // Black to white, through orange, warm color gradient. Sun Color. 
             float r2 = mouseX / 100;
@@ -62,12 +61,12 @@ namespace MohawkGame2D;
             float g3 = 0.8f - ((0.144444444444444444444444444444444444444f / 400) * mouseX);
             float b3 = mouseX / 400;
             
-            // Yellow to light blue color gradient. Moon Color.
+            // Deep Yellow to light blue color gradient. Star Color.
             float r5 = 1.0f - ((1.0f / 400) * mouseX);
             float g5 = 0.7f - ((0.044444444444444444444444444444444444444f / 400) * mouseX);
             float b5 = mouseX / 400;
             
-            //Cloud Color 1.
+            //Cloud Color.
             float r4 = mouseX / 90;
             float g4 = mouseX / 300;
             float b4 = mouseX / 400;
@@ -105,16 +104,16 @@ namespace MohawkGame2D;
                 Draw.Circle(x, y, 2);
             }
 
-            void DrawMoon(float sunX, float sunY)
+            void DrawMoon(float moonX, float moonY)
             {
                 Draw.LineColor= new ColorF(r3, g3, b3);
                 Draw.FillColor = new ColorF(r3, g3, b3);;
-                Draw.Circle(sunX + mouseX / 2, sunY + mouseX / 2, 40);
+                Draw.Circle(moonX + mouseX / 2, moonY + mouseX / 2, 40);
             
                 // Moon Hole
                 Draw.LineColor = new ColorF(r, g, b);
                 Draw.FillColor = new ColorF(r, g, b);;
-                Draw.Circle(sunX - 25 + mouseX / 2, sunY + mouseX / 2, 24);
+                Draw.Circle(moonX - 25 + mouseX / 2, moonY + mouseX / 2, 24);
             }
             
             DrawMoon(220, 195);
