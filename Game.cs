@@ -17,11 +17,9 @@ namespace MohawkGame2D;
         {
             Window.SetTitle("Night / Day");
             Window.SetSize(400, 400);
+            
         }
-
-        /// <summary>
-        ///     Update runs every frame.
-        /// </summary>
+        
         public void Update()
         {
             
@@ -76,6 +74,34 @@ namespace MohawkGame2D;
             ColorF bgColor = new ColorF(r, g, b);
             Window.ClearBackground(bgColor);
             
+            //Stars
+            Draw.LineSize = 0;
+            Draw.FillColor = new ColorF(r5, g5, b5);
+            for (int i = 0; i < 5; i++)
+            {
+                int x = 60 + (i * 78) + (i * 5);
+                int y = 20 + (i * 35) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int x = 300 - (i * 100) + (i * 10);
+                int y = 50 + (i * 25) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int x = 160 - (i * 65) + (i * 10);
+                int y = 10 + (i * 75) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                int x = 35 + (i * 125) + (i * 5);
+                int y = 220 - (i * 25) + (i * 5);
+                Draw.Circle(x, y, 2);
+            }
+            
             // Moon Body
             Draw.LineColor= new ColorF(r3, g3, b3);
             Draw.FillColor = new ColorF(r3, g3, b3);;
@@ -111,41 +137,13 @@ namespace MohawkGame2D;
             Draw.FillColor = new ColorF(r4, g4, b4);
             Draw.Circle(150, 315, 44);
             
-            //Stars
-            Draw.LineSize = 0;
-            Draw.FillColor = new ColorF(r5, g5, b5);
-            for (int i = 0; i < 5; i++)
-            {
-                int x = 60 + (i * 78) + (i * 5);
-                int y = 20 + (i * 35) + (i * 5);
-                Draw.Circle(x, y, 2);
-            }
-            for (int i = 0; i < 4; i++)
-            {
-                int x = 300 - (i * 100) + (i * 10);
-                int y = 50 + (i * 25) + (i * 5);
-                Draw.Circle(x, y, 2);
-            }
-            for (int i = 0; i < 4; i++)
-            {
-                int x = 160 - (i * 65) + (i * 10);
-                int y = 10 + (i * 75) + (i * 5);
-                Draw.Circle(x, y, 2);
-            }
-            for (int i = 0; i < 3; i++)
-            {
-                int x = 35 + (i * 125) + (i * 5);
-                int y = 220 - (i * 25) + (i * 5);
-                Draw.Circle(x, y, 2);
-            }
-            
             //Shooting Stars
             int[] Shootingstar = new int[400];
             
             //Allows Shooting Stars only at night
             if (mouseX <= 100)
             {
-                if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
+                if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
                 {
                         shootingstarx -= Time.DeltaTime * starspeed;
                         Draw.LineColor = new ColorF(r3, g3, b3);
