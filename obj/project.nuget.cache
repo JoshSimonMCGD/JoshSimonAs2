@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "52+Y0WR1pHs=",
+  "success": true,
+  "projectFilePath": "/Users/owner/Desktop/Mohawk/Game Programming Fundamentals/Night Day Cycle/RenameMe.csproj",
+  "expectedPackageFiles": [
+    "/Users/owner/.nuget/packages/raylib-cs/6.1.1/raylib-cs.6.1.1.nupkg.sha512",
+    "/Users/owner/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
