@@ -1,23 +1,19 @@
-﻿// Include the namespaces (code libraries) you need below.
+﻿// Day / Night Cycle
 using System;
 using System.Numerics;
+// This Program creates a Day / Night cycle based on mouse movement across the x axis. Originally, the program was also
+// meant to allow the user to create a randomly generated shooting star during the night cycle. Shooting star update coming soon.
 
-// The namespace your code is in.
 namespace MohawkGame2D;
-    /// <summary>
-    ///     Your game code goes inside this class!
-    /// </summary>
     public class Game
     { 
-        float starspeed = 25;
-
-        float shootingstarx = 400;
-        
-        // Framecount Variable
+        // Framecount Variable.
         int frameCount = 0;
         
+        // Starting Cloud Position.
         float cloudpositionX = 0;
         
+        // Setup.
         public void Setup()
         {
             Window.SetTitle("Night / Day");
@@ -26,13 +22,10 @@ namespace MohawkGame2D;
         
         public void Update()
         {
-            // Declare Random Placement Variables.
-            int starplacement1 = Random.Integer(400);
-            int starplacement2 = Random.Integer(200);
+            // Most variables. Variables not responding while outside of 'public void'. Will ask about the issue next class.
             
             // Declare Mouse Position Variables.
             float mouseX = Input.GetMouseX();
-            float mouseY = Input.GetMouseY();
             
             //Prevent Values above 400
             if (mouseX > 400)
@@ -45,6 +38,8 @@ namespace MohawkGame2D;
             {
                 mouseX = 0;
             }
+            
+            // All Color Variables:
             
             // Black to light blue cold color gradient. Sky Color. 
             float r = 0.0f;
@@ -72,6 +67,8 @@ namespace MohawkGame2D;
             float b4 = mouseX / 400;
             float c4 = 0.0f + ((1.0f / 400) * mouseX);
             
+            // Visual Assets:
+            
             // Backround
             ColorF bgColor = new ColorF(r, g, b);
             Window.ClearBackground(bgColor);
@@ -79,6 +76,11 @@ namespace MohawkGame2D;
             //Stars
             Draw.LineSize = 0;
             Draw.FillColor = new ColorF(r5, g5, b5);
+            
+            // Creates consistent and somewhat accurate star placement. While random variables could have been used 
+            // like the example shown in class, random variables for star placement did not look cohesive with the rest
+            // of the piece.
+            
             for (int i = 0; i < 5; i++)
             {
                 int x = 60 + (i * 78) + (i * 5);
@@ -103,6 +105,8 @@ namespace MohawkGame2D;
                 int y = 220 - (i * 25) + (i * 5);
                 Draw.Circle(x, y, 2);
             }
+            
+            // Draw Moon function combining the moon with its inner circle making it appear to be crescent.
 
             void DrawMoon(float moonX, float moonY)
             {
@@ -115,14 +119,14 @@ namespace MohawkGame2D;
                 Draw.FillColor = new ColorF(r, g, b);;
                 Draw.Circle(moonX - 25 + mouseX / 2, moonY + mouseX / 2, 24);
             }
-            
             DrawMoon(220, 195);
             
             // Sun
             Draw.LineColor = new ColorF(r, g, b);
             Draw.FillColor = new ColorF(r2, g2, b2);
             Draw.Circle(mouseX / 2, 400 - mouseX / 2, 60);
-
+            
+            // Addint 'DeltaTime' to the cloud placement to create movement.
             cloudpositionX += Time.DeltaTime * 70;
             
             //Clouds
@@ -132,6 +136,8 @@ namespace MohawkGame2D;
             Draw.Circle(cloudpositionX - 100, 270, 52);
             Draw.Circle(cloudpositionX - 50, 290, 49);
             Draw.Circle(cloudpositionX - 95, 315, 44);
+            
+            // Causes the cloud to return to it's starting position after exiting the window area. 
             if (cloudpositionX > Window.Width + 200)
             {
                 cloudpositionX = 0;
@@ -143,12 +149,14 @@ namespace MohawkGame2D;
             //Allows Shooting Stars only at night
             if (mouseX <= 100)
             {
+                // Diactivated Code contributing to the 'Shooting Star' component of the program. Still a working progress.
+                
                 if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
                 {
-                        shootingstarx -= Time.DeltaTime * starspeed;
-                        Draw.LineColor = new ColorF(r3, g3, b3);
-                        Draw.FillColor = new ColorF(r3, g3, b3);
-                        Draw.Circle(shootingstarx, 200, 5);
+                        // shootingstarx -= Time.DeltaTime * starspeed;
+                       // Draw.LineColor = new ColorF(r3, g3, b3);
+                        // Draw.FillColor = new ColorF(r3, g3, b3);
+                       //  Draw.Circle(shootingstarx, 200, 5);
                         
                 }
 
